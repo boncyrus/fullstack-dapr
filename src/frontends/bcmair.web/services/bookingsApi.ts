@@ -30,6 +30,8 @@ export class BookingsApi {
 
     async creatBooking(request: CreateBookingRequest) {
         try {
+            console.log(`${this.hostUrl}/api/bookings`);
+
             const apiResponse = await axios.post<CreateBookingResponse>(`${this.hostUrl}/api/bookings`, request, {
                 headers: {
                     accept: 'application/json',

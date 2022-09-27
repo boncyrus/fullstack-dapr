@@ -2,6 +2,7 @@ import { Divider, Grid, Paper, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import PlaneIcon from '@mui/icons-material/Flight';
 import { Booking } from '../../models/dtos/booking';
+import React from 'react';
 
 interface BookingCardProps {
     booking: Booking;
@@ -91,8 +92,8 @@ const BookingCard: React.FC<BookingCardProps> = ({ booking }) => {
                             </Grid>
                         </Grid>
                         <Grid container item>
-                            {booking.passengers.map((p) => (
-                                <>
+                            {booking.passengers.map((p, index) => (
+                                <React.Fragment key={index}>
                                     <Grid item xs={6}>
                                         <Typography variant='body1'>{`${p.firstName} ${p.lastName}`}</Typography>
                                     </Grid>
@@ -101,7 +102,7 @@ const BookingCard: React.FC<BookingCardProps> = ({ booking }) => {
                                             <Typography variant='body1'>{p.seatNumber}</Typography>
                                         </RightContainer>
                                     </Grid>
-                                </>
+                                </React.Fragment>
                             ))}
                         </Grid>
                     </Grid>

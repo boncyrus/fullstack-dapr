@@ -16,7 +16,7 @@ namespace Bcm.BcmAir.Booking.Api.Controllers
             _mediator = mediator;
         }
 
-        [HttpPost(ApiRoutes.Bookings.Base)]
+        [HttpPost]
         public async Task<IActionResult> CreateBooking(CreateBookingCommand request)
         {
             var response = await _mediator.Send(request);

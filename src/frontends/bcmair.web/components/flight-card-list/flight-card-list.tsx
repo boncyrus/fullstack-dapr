@@ -20,7 +20,7 @@ const FlightCardList: React.FC<FlightCardListProps> = (props) => {
     return (
         <>
             {props.flights?.length > 0 ? (
-                <Grid spacing={2}>
+                <Grid container>
                     {props.flights.map((flight) => (
                         <SelectableGrid
                             onClick={() => props?.onCardClick && props.onCardClick(flight)}
@@ -28,7 +28,6 @@ const FlightCardList: React.FC<FlightCardListProps> = (props) => {
                             item
                             key={flight.id}
                             xs={12}
-                            md={6}
                         >
                             <FlightCard flight={flight}></FlightCard>
                         </SelectableGrid>

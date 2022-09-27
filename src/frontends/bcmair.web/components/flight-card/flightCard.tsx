@@ -70,7 +70,7 @@ const FlightCard: React.FC<FlightCardProps> = ({ flight }) => {
 
                     <Divider />
 
-                    <Grid mt={1} container xs={12} justifyContent='space-between' alignItems='center'>
+                    <Grid mt={1} container justifyContent='space-between' alignItems='center'>
                         <Grid xs={4} item>
                             <Path variant='body1'>{flight.origin}</Path>
                         </Grid>

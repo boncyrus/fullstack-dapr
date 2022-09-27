@@ -15,11 +15,10 @@ import {
 } from '@mui/material';
 import { FieldArray, Form, Formik, FormikHelpers } from 'formik';
 import { useState } from 'react';
-import * as Yup from 'yup';
 import { Flight } from '../../models/dtos/flight';
 import { Passenger } from '../../models/dtos/passenger';
 import { SeatsService } from '../../services/seatsService';
-import { BcmInput } from '../core/bcm-input/bcmTextField';
+import { BcmInput } from '../core/bcm-input/bcmInput';
 import FlightCardList from '../flight-card-list/flight-card-list';
 
 interface FormValues {
@@ -27,11 +26,6 @@ interface FormValues {
 }
 
 const seatsService = new SeatsService();
-
-const formValuesSchema = Yup.object().shape({
-    firstName: Yup.string().required('First name is required.'),
-    lastName: Yup.string().required('Last name is required.'),
-});
 
 const getDefaultPassenger = (): Passenger => {
     return {
@@ -169,7 +163,7 @@ const BookAFlightForm: React.FC<BookAFlightFormProps> = ({ flights, onSubmit }) 
                                                                 <Grid container spacing={2} justifyContent='center'>
                                                                     <Grid item xs={12} md='auto'>
                                                                         <BcmInput
-                                                                            fullWidth
+                                                                            variant='filled'
                                                                             label='First name'
                                                                             placeholder='First name'
                                                                             name={`passengers[${index}].firstName`}
@@ -178,6 +172,7 @@ const BookAFlightForm: React.FC<BookAFlightFormProps> = ({ flights, onSubmit }) 
 
                                                                     <Grid item xs={12} md='auto'>
                                                                         <BcmInput
+                                                                            variant='filled'
                                                                             label='Middle initial'
                                                                             placeholder='Middle initial'
                                                                             name={`passengers[${index}].middleInitial`}
@@ -186,6 +181,7 @@ const BookAFlightForm: React.FC<BookAFlightFormProps> = ({ flights, onSubmit }) 
 
                                                                     <Grid item xs={12} md='auto'>
                                                                         <BcmInput
+                                                                            variant='filled'
                                                                             label='Last name'
                                                                             placeholder='Last name'
                                                                             name={`passengers[${index}].lastName`}
@@ -193,16 +189,20 @@ const BookAFlightForm: React.FC<BookAFlightFormProps> = ({ flights, onSubmit }) 
                                                                     </Grid>
                                                                     <Grid item xs={12} md='auto' alignSelf='center'>
                                                                         <Tooltip title='Delete'>
-                                                                            <IconButton
-                                                                                disabled={
-                                                                                    values.passengers.length == 1 &&
-                                                                                    index == 0
-                                                                                }
-                                                                                onClick={() => handleRemovePax(index)}
-                                                                                aria-label='delete'
-                                                                            >
-                                                                                <DeleteIcon />
-                                                                            </IconButton>
+                                                                            <span>
+                                                                                <IconButton
+                                                                                    disabled={
+                                                                                        values.passengers.length == 1 &&
+                                                                                        index == 0
+                                                                                    }
+                                                                                    onClick={() =>
+                                                                                        handleRemovePax(index)
+                                                                                    }
+                                                                                    aria-label='delete'
+                                                                                >
+                                                                                    <DeleteIcon />
+                                                                                </IconButton>
+                                                                            </span>
                                                                         </Tooltip>
                                                                     </Grid>
                                                                 </Grid>

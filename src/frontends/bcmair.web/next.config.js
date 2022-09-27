@@ -12,8 +12,8 @@ const nextConfig = {
         return config;
     },
     env: {
-        BOOKINGS_API_HOST: 'http://127.0.0.1:8070',
-        CATALOG_API_HOST: 'http://127.0.0.1:8080',
+        BOOKINGS_API_HOST: 'http://localhost:8070',
+        CATALOG_API_HOST: 'http://localhost:8080',
     },
 };
 
