@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A3F6D6E9-0497-4BAC-91FA-82B90DEAAA22}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "services", "services", "{0D0451BB-B263-4B1B-91D7-2B3BA99E421C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bcm.BcmAir.Catalog.Api", "services\Catalog\Bcm.BcmAir.Catalog.Api\Bcm.BcmAir.Catalog.Api.csproj", "{B11C7D3B-9F30-4430-9E0B-5C1CA0C7381B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "catalog", "catalog", "{DE45F577-027F-4BEE-A1B6-BE945BDC7783}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "booking", "booking", "{8F08C37C-CE92-4EAE-88CD-046593D17AA4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bcm.BcmAir.Booking.Api", "services\Booking\Bcm.BcmAir.Booking.Api\Bcm.BcmAir.Booking.Api.csproj", "{4EEF8246-2B15-4FE8-8C7D-967F510863E6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{C5BD7191-64FB-4DE2-AB03-0E50CDF41D93}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bcm.BcmAir.Common", "services\Shared\Bcm.BcmAir.Common\Bcm.BcmAir.Common.csproj", "{C7C9E338-9F82-4117-A8AB-B4C51398B691}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bcm.BcmAir.Infrastructure.Common", "services\Shared\Bcm.BcmAir.Infrastructure.Common\Bcm.BcmAir.Infrastructure.Common.csproj", "{3697EC4A-FFAC-43E2-8280-0EACEF582316}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dapr", "dapr", "{D590B023-417D-4638-BC27-F2CAF31FA3C0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components", "components", "{89AD2BCB-D383-44FF-9384-BAE7B749AE57}"
+	ProjectSection(SolutionItems) = preProject
+		dapr\components\pubsub.yml = dapr\components\pubsub.yml
+		dapr\components\statestore.yml = dapr\components\statestore.yml
+	EndProjectSection
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{D305857B-8F90-4DC0-A6C9-00C2D97C56B8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B11C7D3B-9F30-4430-9E0B-5C1CA0C7381B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B11C7D3B-9F30-4430-9E0B-5C1CA0C7381B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B11C7D3B-9F30-4430-9E0B-5C1CA0C7381B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B11C7D3B-9F30-4430-9E0B-5C1CA0C7381B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EEF8246-2B15-4FE8-8C7D-967F510863E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EEF8246-2B15-4FE8-8C7D-967F510863E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EEF8246-2B15-4FE8-8C7D-967F510863E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EEF8246-2B15-4FE8-8C7D-967F510863E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7C9E338-9F82-4117-A8AB-B4C51398B691}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7C9E338-9F82-4117-A8AB-B4C51398B691}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7C9E338-9F82-4117-A8AB-B4C51398B691}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7C9E338-9F82-4117-A8AB-B4C51398B691}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3697EC4A-FFAC-43E2-8280-0EACEF582316}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3697EC4A-FFAC-43E2-8280-0EACEF582316}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3697EC4A-FFAC-43E2-8280-0EACEF582316}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3697EC4A-FFAC-43E2-8280-0EACEF582316}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D305857B-8F90-4DC0-A6C9-00C2D97C56B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D305857B-8F90-4DC0-A6C9-00C2D97C56B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D305857B-8F90-4DC0-A6C9-00C2D97C56B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D305857B-8F90-4DC0-A6C9-00C2D97C56B8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0D0451BB-B263-4B1B-91D7-2B3BA99E421C} = {A3F6D6E9-0497-4BAC-91FA-82B90DEAAA22}
+		{B11C7D3B-9F30-4430-9E0B-5C1CA0C7381B} = {DE45F577-027F-4BEE-A1B6-BE945BDC7783}
+		{DE45F577-027F-4BEE-A1B6-BE945BDC7783} = {0D0451BB-B263-4B1B-91D7-2B3BA99E421C}
+		{8F08C37C-CE92-4EAE-88CD-046593D17AA4} = {0D0451BB-B263-4B1B-91D7-2B3BA99E421C}
+		{4EEF8246-2B15-4FE8-8C7D-967F510863E6} = {8F08C37C-CE92-4EAE-88CD-046593D17AA4}
+		{C5BD7191-64FB-4DE2-AB03-0E50CDF41D93} = {0D0451BB-B263-4B1B-91D7-2B3BA99E421C}
+		{C7C9E338-9F82-4117-A8AB-B4C51398B691} = {C5BD7191-64FB-4DE2-AB03-0E50CDF41D93}
+		{3697EC4A-FFAC-43E2-8280-0EACEF582316} = {C5BD7191-64FB-4DE2-AB03-0E50CDF41D93}
+		{D590B023-417D-4638-BC27-F2CAF31FA3C0} = {A3F6D6E9-0497-4BAC-91FA-82B90DEAAA22}
+		{89AD2BCB-D383-44FF-9384-BAE7B749AE57} = {D590B023-417D-4638-BC27-F2CAF31FA3C0}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C99B8877-D7EA-4670-A2B2-D9B1A46FAFE6}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,32 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+      "serviceActions": {
+        "booking-api": "StartDebugging",
+        "booking-api-dapr": "StartWithoutDebugging",
+        "catalog-api": "StartDebugging",
+        "catalog-api-dapr": "StartWithoutDebugging",
+        "frontend": "StartWithoutDebugging",
+        "frontend-dapr": "StartWithoutDebugging",
+        "placement": "StartWithoutDebugging",
+        "redis": "StartWithoutDebugging"
+      }
+    },
+    "Docker Compose Apis": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+      "serviceActions": {
+        "booking-api": "StartDebugging",
+        "booking-api-dapr": "StartWithoutDebugging",
+        "catalog-api": "StartDebugging",
+        "catalog-api-dapr": "StartWithoutDebugging",
+        "frontend": "DoNotStart",
+        "frontend-dapr": "DoNotStart",
+        "placement": "StartWithoutDebugging",
+        "redis": "StartWithoutDebugging"
+      }
+    }
+  }
+}

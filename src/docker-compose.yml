@@ -1,0 +1,126 @@
+version: '3.4'
+
+services:
+  frontend:
+    image: ${DOCKER_REGISTRY-}bcmair/web
+    build:
+        context: frontends/bcmair.web
+        dockerfile: ./Dockerfile.dev
+    restart: always
+    ports:
+      - "3000:3000"
+      - "3503:3503"
+    environment:
+      - DAPR_HTTP_PORT=3503
+    volumes:
+    - ./frontends/bcmair.web:/app
+    - /app/node_modules
+    - /app/.next
+    networks:
+    - bcmair
+    depends_on:
+    - redis
+    - placement
+    - catalog-api
+    - booking-api
+
+  frontend-dapr:
+    image: "daprio/daprd:edge"
+    command: [
+      "./daprd",
+     "-app-id", "frontend",
+     "-app-port", "3000",
+     "-dapr-http-port", "3503",
+     "-placement-host-address", "placement:50006",
+     "-components-path", "/dapr"]
+    volumes:
+      - "./dapr/components:/dapr"
+    network_mode: "service:frontend"
+    depends_on:
+    - catalog-api
+    - booking-api
+
+  catalog-api:
+    hostname: catalog-api
+    image: ${DOCKER_REGISTRY-}bcmair/catalog-api
+    build:
+      context: .
+      dockerfile: services/Catalog/Bcm.BcmAir.Catalog.Api/Dockerfile
+    ports:
+      - "8080:8080"
+      - "3501:3501"
+    environment:
+      - ASPNETCORE_URLS=http://+:8080
+      - DAPR_HTTP_PORT=3501
+    networks:
+    - bcmair
+    depends_on:
+    - redis
+    - placement
+
+  catalog-api-dapr:
+    image: "daprio/daprd:edge"
+    command: [
+      "./daprd",
+     "-app-id", "catalog",
+     "-app-port", "8080",
+     "-dapr-http-port", "3501",
+     "-placement-host-address", "placement:50006",
+     "-components-path", "/dapr"]
+    volumes:
+      - "./dapr/components:/dapr"
+    network_mode: "service:catalog-api"
+    depends_on:
+      - catalog-api
+
+  booking-api:
+    image: ${DOCKER_REGISTRY-}bcmair/booking-api
+    build:
+      context: .
+      dockerfile: services/Booking/Bcm.BcmAir.Booking.Api/Dockerfile
+    ports:
+      - "8070:8070"
+      - "3502:3502"
+    environment:
+      - ASPNETCORE_URLS=http://+:8070
+      - DAPR_HTTP_PORT=3502
+    networks:
+    - bcmair
+    depends_on:
+    - redis
+    - placement
+
+  booking-api-dapr:
+    image: "daprio/daprd:edge"
+    command: [
+      "./daprd",
+     "-app-id", "booking",
+     "-app-port", "8070",
+     "-dapr-http-port", "3502",
+     "-placement-host-address", "placement:50006",
+     "-components-path", "/dapr"]
+    volumes:
+      - "./dapr/components:/dapr"
+    network_mode: "service:booking-api"
+    depends_on:
+      - booking-api
+
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6380:6379"
+    #volumes:
+    #- ./data:/data
+    networks:
+      - bcmair
+
+  placement:
+    image: "daprio/dapr"
+    command: ["./placement", "-port", "50006"]
+    ports:
+      - "50006:50006"
+    networks:
+      - bcmair
+
+networks:
+  bcmair:

@@ -1,0 +1,16 @@
+﻿apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: bcmair-statestore
+spec:
+  type: state.redis
+  version: v1
+  metadata:
+  - name: redisHost
+    value: redis:6379
+  - name: redisPassword
+    value: ""
+  - name: actorStateStore
+    value: "true"
+  - name: keyPrefix #state store is shared across services. for demo purposes only
+    value: name
